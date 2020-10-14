@@ -1,0 +1,415 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <TextView
+        android:id="@+id/textView51"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:gravity="start"
+        android:text="توضیحات :"
+        android:textAlignment="textStart"
+        android:textSize="17sp"
+        app:layout_constraintEnd_toEndOf="@+id/textView50"
+        app:layout_constraintTop_toTopOf="@+id/des" />
+
+    <TextView
+        android:id="@+id/textView27"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="32dp"
+        android:gravity="start"
+        android:text="ثبت کننده سفارش :"
+        android:textAlignment="textStart"
+        android:textSize="17sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.954"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/textView28"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:gravity="start"
+        android:text="سال تولید :"
+        android:textAlignment="textStart"
+        android:textSize="17sp"
+        app:layout_constraintEnd_toEndOf="@+id/textView42"
+        app:layout_constraintTop_toBottomOf="@+id/textView42" />
+
+    <TextView
+        android:id="@+id/textView31"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:gravity="start"
+        android:text="نام برند :"
+        android:textAlignment="textStart"
+        android:textSize="17sp"
+        app:layout_constraintEnd_toEndOf="@+id/textView39"
+        app:layout_constraintTop_toBottomOf="@+id/textView39" />
+
+    <TextView
+        android:id="@+id/textView33"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:gravity="start"
+        android:text="تاریخ :"
+        android:textAlignment="textStart"
+        android:textSize="17sp"
+        app:layout_constraintEnd_toEndOf="@+id/textView36"
+        app:layout_constraintTop_toBottomOf="@+id/textView36" />
+
+    <TextView
+        android:id="@+id/textView35"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:gravity="start"
+        android:text="کد نمایندگی :"
+        android:textAlignment="textStart"
+        android:textSize="17sp"
+        app:layout_constraintEnd_toEndOf="@+id/textView40"
+        app:layout_constraintTop_toBottomOf="@+id/textView40" />
+
+    <TextView
+        android:id="@+id/textView36"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:text="شماره شاسی :"
+        android:textSize="17sp"
+        android:textAlignment="textStart"
+        android:gravity="start"
+        app:layout_constraintEnd_toEndOf="@+id/textView31"
+        app:layout_constraintTop_toBottomOf="@+id/textView31" />
+
+    <TextView
+        android:id="@+id/textView39"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:gravity="start"
+        android:text="مدل خودرو :"
+        android:textAlignment="textStart"
+        android:textSize="17sp"
+        app:layout_constraintEnd_toEndOf="@+id/textView28"
+        app:layout_constraintTop_toBottomOf="@+id/textView28" />
+
+    <TextView
+        android:id="@+id/textView40"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:gravity="start"
+        android:text="نام مشتری :"
+        android:textAlignment="textStart"
+        android:textSize="17sp"
+        app:layout_constraintEnd_toEndOf="@+id/textView33"
+        app:layout_constraintTop_toBottomOf="@+id/textView33" />
+
+    <TextView
+        android:id="@+id/textView42"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:gravity="start"
+        android:text="نام خودرو :"
+        android:textAlignment="textStart"
+        android:textSize="17sp"
+        app:layout_constraintEnd_toEndOf="@+id/textView27"
+        app:layout_constraintTop_toBottomOf="@+id/textView27" />
+
+    <TextView
+        android:id="@+id/textView44"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:text="شماره تماس :"
+        android:textSize="17sp"
+        android:textAlignment="textStart"
+        android:gravity="start"
+        app:layout_constraintEnd_toEndOf="@+id/textView35"
+        app:layout_constraintTop_toBottomOf="@+id/textView35" />
+
+    <TextView
+        android:id="@+id/textView45"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:text="نام قطعه :"
+        android:textSize="17sp"
+        android:textAlignment="textStart"
+        android:gravity="start"
+        app:layout_constraintEnd_toEndOf="@+id/textView44"
+        app:layout_constraintTop_toBottomOf="@+id/textView44" />
+
+    <TextView
+        android:id="@+id/textView46"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:text="نحوه پرداخت :"
+        android:textSize="17sp"
+        android:textAlignment="textStart"
+        android:gravity="start"
+        app:layout_constraintEnd_toEndOf="@+id/textView47"
+        app:layout_constraintTop_toBottomOf="@+id/textView47" />
+
+    <TextView
+        android:id="@+id/textView47"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:text="تعداد :"
+        android:textSize="17sp"
+        android:textAlignment="textStart"
+        android:gravity="start"
+        app:layout_constraintEnd_toEndOf="@+id/textView45"
+        app:layout_constraintTop_toBottomOf="@+id/textView45" />
+
+    <TextView
+        android:id="@+id/textView48"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:text="مبلغ پرداختی :"
+        android:textSize="17sp"
+        android:textAlignment="textStart"
+        android:gravity="start"
+        app:layout_constraintEnd_toEndOf="@+id/textView49"
+        app:layout_constraintTop_toBottomOf="@+id/textView49" />
+
+    <TextView
+        android:id="@+id/textView49"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:text="وضعیت پرداخت :"
+        android:textSize="17sp"
+        android:textAlignment="textStart"
+        android:gravity="start"
+        app:layout_constraintEnd_toEndOf="@+id/textView46"
+        app:layout_constraintTop_toBottomOf="@+id/textView46" />
+
+    <TextView
+        android:id="@+id/textView50"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:text="آدرس :"
+        android:textSize="17sp"
+        android:textAlignment="textStart"
+        android:gravity="start"
+        app:layout_constraintEnd_toEndOf="@+id/textView48"
+        app:layout_constraintTop_toBottomOf="@+id/textView48" />
+
+    <TextView
+        android:id="@+id/user"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="48dp"
+        android:layout_marginLeft="48dp"
+        android:layout_marginBottom="4dp"
+        android:text="TextView"
+        app:layout_constraintBottom_toBottomOf="@+id/textView27"
+        app:layout_constraintEnd_toStartOf="@+id/textView27"
+        app:layout_constraintHorizontal_bias="0.744"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <TextView
+        android:id="@+id/car"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="TextView"
+        android:textAlignment="textStart"
+        android:gravity="start"
+        app:layout_constraintBottom_toBottomOf="@+id/textView42"
+        app:layout_constraintEnd_toEndOf="@+id/user"
+        app:layout_constraintTop_toBottomOf="@+id/user"
+        app:layout_constraintVertical_bias="1.0" />
+
+    <TextView
+        android:id="@+id/creation_time"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="TextView"
+        android:textAlignment="textStart"
+        android:gravity="start"
+        app:layout_constraintBottom_toBottomOf="@+id/textView28"
+        app:layout_constraintEnd_toEndOf="@+id/car"
+        app:layout_constraintTop_toBottomOf="@+id/car"
+        app:layout_constraintVertical_bias="1.0" />
+
+    <TextView
+        android:id="@+id/carMo"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="2dp"
+        android:text="TextView"
+        android:textAlignment="textStart"
+        android:gravity="start"
+        app:layout_constraintBottom_toBottomOf="@+id/textView39"
+        app:layout_constraintEnd_toEndOf="@+id/creation_time"
+        app:layout_constraintTop_toBottomOf="@+id/creation_time"
+        app:layout_constraintVertical_bias="1.0" />
+
+    <TextView
+        android:id="@+id/brand"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:text="TextView"
+        android:textAlignment="textStart"
+        android:gravity="start"
+        app:layout_constraintBottom_toBottomOf="@+id/textView31"
+        app:layout_constraintEnd_toEndOf="@+id/carMo"
+        app:layout_constraintTop_toBottomOf="@+id/carMo" />
+
+    <TextView
+        android:id="@+id/chassis"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="14dp"
+        android:text="TextView"
+        android:textAlignment="textStart"
+        android:gravity="start"
+        app:layout_constraintBottom_toBottomOf="@+id/textView36"
+        app:layout_constraintEnd_toEndOf="@+id/brand"
+        app:layout_constraintTop_toBottomOf="@+id/brand" />
+
+    <TextView
+        android:id="@+id/date"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="TextView"
+        app:layout_constraintBottom_toBottomOf="@+id/textView33"
+        app:layout_constraintEnd_toEndOf="@+id/chassis"
+        app:layout_constraintTop_toBottomOf="@+id/chassis"
+        app:layout_constraintVertical_bias="1.0" />
+
+    <TextView
+        android:id="@+id/client"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="TextView"
+        android:textAlignment="textStart"
+        android:gravity="start"
+        app:layout_constraintBottom_toBottomOf="@+id/textView40"
+        app:layout_constraintEnd_toEndOf="@+id/date"
+        app:layout_constraintTop_toBottomOf="@+id/date"
+        app:layout_constraintVertical_bias="1.0" />
+
+    <TextView
+        android:id="@+id/id"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="14dp"
+        android:text="TextView"
+        app:layout_constraintBottom_toBottomOf="@+id/textView35"
+        app:layout_constraintEnd_toEndOf="@+id/client"
+        app:layout_constraintTop_toBottomOf="@+id/client"
+        app:layout_constraintVertical_bias="1.0" />
+
+    <TextView
+        android:id="@+id/phone"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="14dp"
+        android:text="TextView"
+        app:layout_constraintBottom_toBottomOf="@+id/textView44"
+        app:layout_constraintEnd_toEndOf="@+id/id"
+        app:layout_constraintTop_toBottomOf="@+id/id"
+        app:layout_constraintVertical_bias="1.0" />
+
+    <TextView
+        android:id="@+id/part"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="15dp"
+        android:text="TextView"
+        app:layout_constraintBottom_toBottomOf="@+id/textView45"
+        app:layout_constraintEnd_toEndOf="@+id/phone"
+        app:layout_constraintTop_toBottomOf="@+id/phone" />
+
+    <TextView
+        android:id="@+id/count"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="14dp"
+        android:text="TextView"
+        app:layout_constraintBottom_toBottomOf="@+id/textView47"
+        app:layout_constraintEnd_toEndOf="@+id/part"
+        app:layout_constraintTop_toBottomOf="@+id/part" />
+
+    <TextView
+        android:id="@+id/payment_method"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="14dp"
+        android:text="TextView"
+        app:layout_constraintBottom_toBottomOf="@+id/textView46"
+        app:layout_constraintEnd_toEndOf="@+id/count"
+        app:layout_constraintTop_toBottomOf="@+id/count" />
+
+    <TextView
+        android:id="@+id/pay_state"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="14dp"
+        android:text="TextView"
+        app:layout_constraintBottom_toBottomOf="@+id/textView49"
+        app:layout_constraintEnd_toEndOf="@+id/payment_method"
+        app:layout_constraintTop_toBottomOf="@+id/payment_method" />
+
+    <TextView
+        android:id="@+id/cost"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="14dp"
+        android:text="TextView"
+        app:layout_constraintBottom_toBottomOf="@+id/textView48"
+        app:layout_constraintEnd_toEndOf="@+id/pay_state"
+        app:layout_constraintTop_toBottomOf="@+id/pay_state"
+        app:layout_constraintVertical_bias="1.0" />
+
+    <TextView
+        android:id="@+id/add"
+        android:layout_width="179dp"
+        android:layout_height="24dp"
+        android:layout_marginTop="14dp"
+        android:gravity="start"
+        android:text="TextView"
+        android:textAlignment="textStart"
+        app:layout_constraintBottom_toTopOf="@+id/des"
+        app:layout_constraintEnd_toEndOf="@+id/cost"
+        app:layout_constraintTop_toBottomOf="@+id/cost"
+        app:layout_constraintVertical_bias="0.0" />
+
+    <TextView
+        android:id="@+id/des"
+        android:layout_width="166dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="12dp"
+        android:maxLength="15"
+        android:textAlignment="textStart"
+        android:gravity="start"
+        app:layout_constraintEnd_toEndOf="@+id/add"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/add" />
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="5dp"
+        android:layout_marginTop="10dp"
+        android:background="#673AB7"
+        app:layout_constraintTop_toBottomOf="@+id/des"
+        tools:layout_editor_absoluteX="51dp" />
+</androidx.constraintlayout.widget.ConstraintLayout>

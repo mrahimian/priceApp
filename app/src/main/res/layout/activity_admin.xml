@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/bg"
+    tools:context=".AdminActivity">
+
+    <Button
+        android:id="@+id/supplies_btn"
+        android:layout_width="0dp"
+        android:layout_height="54dp"
+        android:layout_marginBottom="72dp"
+        android:background="@drawable/button"
+        android:text="لیست سفارش ها"
+        android:textColor="#FFFFFF"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toTopOf="@+id/query_btn"
+        app:layout_constraintEnd_toEndOf="@+id/query_btn"
+        app:layout_constraintHorizontal_bias="0.49"
+        app:layout_constraintStart_toStartOf="@+id/query_btn" />
+
+    <Button
+        android:id="@+id/query_btn"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="72dp"
+        android:background="@drawable/button"
+        android:text="لیست استعلام ها"
+        android:textColor="#FFFFFF"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toTopOf="@+id/edit_phone_btn"
+        app:layout_constraintEnd_toEndOf="@+id/edit_phone_btn"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/edit_phone_btn" />
+
+    <Button
+        android:id="@+id/edit_phone_btn"
+        android:layout_width="305dp"
+        android:layout_height="46dp"
+        android:layout_marginBottom="244dp"
+        android:background="@drawable/button"
+        android:text="ویرایش شماره های تلفن همراه"
+        android:textColor="#FFFFFF"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>
