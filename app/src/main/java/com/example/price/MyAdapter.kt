@@ -1,6 +1,7 @@
 package com.example.price
 
 import android.content.Intent
+import android.text.method.ScrollingMovementMethod
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -13,6 +14,7 @@ class MyAdapter(private val info: List<SearchInfo>) : RecyclerView.Adapter<MyAda
 
     inner class MyViewHolder(view: View) : RecyclerView.ViewHolder(view) {
         var partName: TextView = view.findViewById(R.id.part_name)
+
         var partBrand: TextView = view.findViewById(R.id.part_brand)
         var carName: TextView = view.findViewById(R.id.car_name)
         var brandName: TextView = view.findViewById(R.id.brand_name)
@@ -46,6 +48,7 @@ class MyAdapter(private val info: List<SearchInfo>) : RecyclerView.Adapter<MyAda
 
     override fun onBindViewHolder(holder: MyViewHolder, position: Int) {
         val inf = info[position]
+        holder.partName.setMovementMethod(ScrollingMovementMethod());
         holder.partName.text = inf.partName
         holder.partBrand.text = inf.brandName
         holder.carName.text = inf.carName

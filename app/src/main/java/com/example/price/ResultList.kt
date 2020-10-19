@@ -42,7 +42,52 @@ public class ResultList : AppCompatActivity() {
                     results.add(item)
                 }
             }
-        } else {
+        }
+
+        if (part.trim().equals("") && modelChecked.trim().equals("")) {
+            for (item in StartActivity.stockInfo) {
+                if (item.carName.trim().equals(car.trim())) {
+                    results.add(item)
+                }
+            }
+        }
+        if (part.trim().equals("") && !modelChecked.trim().equals("")) {
+            for (item in StartActivity.stockInfo) {
+                if (item.carName.trim().equals(car.trim()) && item.brandName.trim().equals(model.trim())) {
+                    results.add(item)
+                }
+            }
+        }
+        if (!part.trim().equals("") && modelChecked.trim().equals("")) {
+            for (item in StartActivity.stockInfo) {
+                if (item.partName.trim().equals(part.trim()) && item.carName.trim().equals(car.trim())) {
+                    results.add(item)
+                }
+            }
+        }
+
+        if (carChecked.trim().equals("") && part.trim().equals("")) {
+            for (item in StartActivity.stockInfo) {
+                if (item.brandName.trim().equals(model.trim())) {
+                    results.add(item)
+                }
+            }
+        }
+        if (carChecked.trim().equals("") && !part.trim().equals("")) {
+            for (item in StartActivity.stockInfo) {
+                if (item.partName.trim().equals(part.trim()) && item.brandName.trim().equals(model.trim())) {
+                    results.add(item)
+                }
+            }
+        }
+        if (!carChecked.trim().equals("") && part.trim().equals("")) {
+            for (item in StartActivity.stockInfo) {
+                if (item.brandName.trim().equals(model.trim()) && item.carName.trim().equals(car.trim())) {
+                    results.add(item)
+                }
+            }
+        }
+        if (!carChecked.trim().equals("") && !part.trim().equals("") && !modelChecked.trim().equals("")) {
             for (item in StartActivity.stockInfo) {
                 if (item.partName.trim().equals(part.trim()) && item.carName.trim().equals(car.trim()) && item.brandName.trim().equals(model.trim())) {
                     results.add(item)
@@ -50,8 +95,18 @@ public class ResultList : AppCompatActivity() {
             }
         }
 
+
+
+        /*else {
+            for (item in StartActivity.stockInfo) {
+                if (item.partName.trim().equals(part.trim()) && item.carName.trim().equals(car.trim()) && item.brandName.trim().equals(model.trim())) {
+                    results.add(item)
+                }
+            }
+        }*/
+
         var recyclerView = findViewById(R.id.recyclerView) as RecyclerView
-        if (results.size != 0 && isStock()) {
+        if (results.size != 0 && isStock() && req()) {
             var mAdapter = MyAdapter(results)
             val mLayoutManager = LinearLayoutManager(applicationContext)
             recyclerView!!.layoutManager = mLayoutManager
@@ -71,6 +126,15 @@ public class ResultList : AppCompatActivity() {
     fun isStock():Boolean{
         for (item in results){
             if (item.stockCount!=0){
+                return true
+            }
+        }
+        return false
+    }
+
+    fun req():Boolean{
+        for (item in results){
+            if (item.price!=0.0){
                 return true
             }
         }

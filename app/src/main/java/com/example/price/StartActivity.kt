@@ -77,6 +77,7 @@ class StartActivity : AppCompatActivity() {
                         frontFlag = true
                         if (frontFlag && backFlag) {
                             progressBar.visibility = ProgressBar.GONE
+                            textView.visibility = TextView.GONE
                             val intent = Intent(this@StartActivity, LoginActivity::class.java)
                             startActivity(intent)
                             overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_left)
@@ -172,17 +173,21 @@ class StartActivity : AppCompatActivity() {
                     var carChassis = result.getString(6)
                     var brandName = result.getString(7)
                     var country = result.getString(8)
-                    var price = 0
+                    var price = 0.0
                     try {
-                        price = result.getString(9).toInt()
+                        price = result.getString(9).trim().toDouble()
                     }catch (e : java.lang.Exception){
-                        runOnUiThread {
-                        }
+                        e.printStackTrace()
                     }
                     var supplierId = result.getString(10)
+                    /*var buyPrice = 0
+                    try {
+                        buyPrice = result.getString(10).toInt()
+                    }catch (e : java.lang.Exception){
+                    }*/
                     var stockCount = 1
                     try {
-                         stockCount = result.getString(11).toInt()
+                         stockCount = result.getString(11).trim().toInt()
                     }catch (e:java.lang.Exception){
                     }
                     var description = result.getString(13)
@@ -224,7 +229,9 @@ class StartActivity : AppCompatActivity() {
                 backFlag = true
 
                 if (frontFlag && backFlag) {
-                    runOnUiThread { progressBar.visibility = ProgressBar.GONE }
+                    runOnUiThread { progressBar.visibility = ProgressBar.GONE
+                        textView.visibility = TextView.GONE
+                    }
                     val intent = Intent(context, LoginActivity::class.java)
                     startActivity(intent)
                     overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_left)

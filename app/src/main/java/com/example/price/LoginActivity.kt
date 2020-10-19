@@ -66,7 +66,7 @@ class LoginActivity : AppCompatActivity() {
                 return
             }
             user = username.text.toString()
-            startActivity(Intent(this, AdminActivity::class.java))
+            startActivity(Intent(this, Choose::class.java))
         }
 
     }

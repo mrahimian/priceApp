@@ -14,11 +14,13 @@ import android.text.TextWatcher
 import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
+import android.view.WindowManager
 import android.widget.*
 import androidx.annotation.RequiresApi
 import androidx.appcompat.app.AppCompatActivity
 import com.zarinpal.ewallets.purchase.OnCallbackVerificationPaymentListener
 import com.zarinpal.ewallets.purchase.ZarinPal
+import ir.mp.java.mpjava.SoapClient
 import kotlinx.android.synthetic.main.supply.*
 import saman.zamani.persiandate.PersianDate
 import saman.zamani.persiandate.PersianDateFormat
@@ -31,12 +33,15 @@ class SupplyActivity : AppCompatActivity() {
     var price: Double = 0.0
     var address: String = ""
     lateinit var info: Array<String>
-    lateinit var pd2 : ProgressBar
+
+    companion object{
+            val shops : ArrayList<Shopping> = arrayListOf()
+    }
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.supply)
-        pd2 = progressBar2
-
+        getWindow().addFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN)
 
         textView12.addTextChangedListener(object : TextWatcher {
             override fun beforeTextChanged(s: CharSequence?, start: Int, count: Int, after: Int) {
@@ -71,6 +76,7 @@ class SupplyActivity : AppCompatActivity() {
         textView6.setText(carChassis)
         textView13.setText(partName)
 
+
     }
 
 
@@ -80,7 +86,6 @@ class SupplyActivity : AppCompatActivity() {
         if (intent != null) {
             ZarinPal.getPurchase(applicationContext).verificationPayment(intent.data,
                 OnCallbackVerificationPaymentListener { isPaymentSuccess, refID, paymentRequest ->
-                    Log.i("TAG", "onCallbackResultVerificationPayment: $refID")
                     if (isPaymentSuccess) {
                         Toast.makeText(
                             this@SupplyActivity,
@@ -122,9 +127,9 @@ class SupplyActivity : AppCompatActivity() {
                 Toast.makeText(this, "خطا در ایجاد درخواست", Toast.LENGTH_SHORT).show()
 //                Toast.makeText(this, authority, Toast.LENGTH_SHORT).show()
             }
-            pd2.visibility = ProgressBar.INVISIBLE
         }
     }
+
 
     @RequiresApi(Build.VERSION_CODES.LOLLIPOP)
     public fun purchase(v: View) {
@@ -154,7 +159,23 @@ class SupplyActivity : AppCompatActivity() {
         }
 
         popup()
+        /*Toast.makeText(this,"به سبد خرید اضافه شد",Toast.LENGTH_SHORT).show()
 
+        addToCart()
+        startActivity(Intent(this,MainActivity::class.java))
+        finish()*/
+
+    }
+
+    override fun onBackPressed() {
+        super.onBackPressed()
+        startActivity(Intent(this,MainActivity::class.java))
+    }
+
+    private fun addToCart() {
+        val count = textView12.text.toString().toInt()
+        // 0 if single -- 1 if box -- 2 if both
+        shops.add(Shopping(textView13.text.toString() , count , price , count * price , 0 , textView2.text.toString() , textView3.text.toString() , textView4.text.toString() , textView5.text.toString() ,textView6.text.toString() , textView7.text.toString() , false ))
     }
 
     @RequiresApi(Build.VERSION_CODES.LOLLIPOP)
@@ -193,9 +214,6 @@ class SupplyActivity : AppCompatActivity() {
             var brandName = textView5.text.toString()
             var carChassis = textView6.text.toString()
             var description = textView7.text.toString()
-            var clientName = textView10.text.toString()
-            var shopId = textView8.text.toString()
-            var clientPhone = textView11.text.toString()
             var partName = textView13.text.toString()
             var count = textView12.text.toString()
             info = arrayOf(
@@ -205,9 +223,9 @@ class SupplyActivity : AppCompatActivity() {
                 brandName,
                 carChassis,
                 description,
-                clientName,
-                shopId,
-                clientPhone,
+                "",
+                "",
+                "",
                 partName,
                 count
             )
@@ -216,7 +234,6 @@ class SupplyActivity : AppCompatActivity() {
                 Request(this, false, false, this.address, info).execute()
             } else {
 
-                pd2.visibility = ProgressBar.VISIBLE
                 payment((textView12.text.toString().toLong() * price.toLong()))
             }
             alertDialog.dismiss()
@@ -274,12 +291,12 @@ class SupplyActivity : AppCompatActivity() {
                     val stmt = conn.createStatement()
                     val rslt = stmt.executeUpdate(queryStmt)
 
-
+                    context.startActivity(Intent(context,MainActivity::class.java))
+                    sendSMS()
 
                     stmt.close()
                     conn.close()
                 } else {
-                    Log.e("Come Here","pay")
                     conn = DriverManager.getConnection(ConnURL)
                     val pdate = PersianDate()
                     val pdformater1 = PersianDateFormat("Y/m/d H:i:s")
@@ -293,6 +310,8 @@ class SupplyActivity : AppCompatActivity() {
                                 (textView12.text.toString().toLong() * price.toLong())
                             }')"
 
+                        context.startActivity(Intent(context,MainActivity::class.java))
+                        sendSMS()
 
                         val stmt = conn.createStatement()
                         val rslt = stmt.executeUpdate(queryStmt)
@@ -300,12 +319,14 @@ class SupplyActivity : AppCompatActivity() {
                         conn.close()
 
                     } else {
-                        Log.e("yeeesss","tag")
 
                         val queryStmt =
                             "INSERT INTO dbo.Supply VALUES ('${LoginActivity.user}',N'${info[0]}',N'${info[1]}',N'${info[2]}',N'${info[3]}',N'${info[4]}',N'${info[5]}',N'${info[6]}',N'${info[7]}',N'${info[8]}',N'${info[9]}',N'${info[10]}',N'پرداخت آنلاین',0,N'$address',N'$date','${
                                 (textView12.text.toString().toLong() * price.toLong())
                             }')"
+
+                        context.startActivity(Intent(context,MainActivity::class.java))
+                        sendSMS()
 
                         val stmt = conn.createStatement()
                         val rslt = stmt.executeUpdate(queryStmt)
@@ -355,6 +376,22 @@ class SupplyActivity : AppCompatActivity() {
             return ""
         }
 
+        private fun sendSMS(){
+            val from = "100091076434"
+            val policy = StrictMode.ThreadPolicy.Builder().permitAll().build()
+            StrictMode.setThreadPolicy(policy)
+            try {
+//                var p = arrayOf("09197664124","09124441765")
+                val soapClient = SoapClient("mahdi.jafari98", "@25506339Aa")
+//                val obj: Any? = soapClient.SendSimpleSMS(phones.toTypedArray(), from, "استعلام جدید : $partName", false)
+                for(num in Phones.phones) {
+                    val obj: Any? =
+                        soapClient.SendSimpleSMS2(num, from, "خرید جدید : ${textView13.text.toString()}", false)
+                }
+            } catch (e: java.lang.Exception) {
+                e.printStackTrace()
+            }
+        }
 
     }
 }

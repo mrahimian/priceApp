@@ -10,6 +10,7 @@ import android.os.Build
 import android.os.Bundle
 import android.os.StrictMode
 import android.util.Log
+import android.view.WindowManager
 import android.widget.Toast
 import androidx.annotation.RequiresApi
 import androidx.appcompat.app.AppCompatActivity
@@ -45,6 +46,7 @@ class QueryActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.query)
+        getWindow().addFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN)
 
         var intent = intent
         req_car_name.setText(intent.getStringExtra("car"))

@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
 import android.view.View
+import android.view.WindowManager
 import android.widget.ArrayAdapter
 import android.widget.CheckBox
 import android.widget.CompoundButton
@@ -18,6 +19,7 @@ class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
+        getWindow().addFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN)
         car_search.setOnCheckedChangeListener { compoundButton: CompoundButton, b: Boolean -> car_field.isEnabled = b }
         model_search.setOnCheckedChangeListener { compoundButton: CompoundButton, b: Boolean -> model_field.isEnabled = b }
 
@@ -32,6 +34,10 @@ class MainActivity : AppCompatActivity() {
         val brandAdapter = ArrayAdapter(this,
             android.R.layout.simple_list_item_1, brands.toArray())
         model_field.setAdapter(brandAdapter)
+
+        cart2.setOnClickListener {
+            startActivity(Intent(this,PurchasesList::class.java))
+        }
     }
 
     public fun search(v : View){
